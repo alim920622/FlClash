@@ -1,3 +1,8 @@
+## v0.8.76-alpha1
+
+- Update state.go
+- Update changelog
+
 ## v0.8.76-alpha
 
 - Update build.yaml
