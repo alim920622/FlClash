@@ -2,8 +2,14 @@
 
 package state
 
-var DefaultIpv4Address = "192.168.43.231/30"
-var DefaultDnsAddress = "192.168.43.232"
+import (
+	"fmt"
+	"math/rand"
+	"time"
+)
+
+var DefaultIpv4Address string
+var DefaultDnsAddress string
 var DefaultIpv6Address = "fdfe:dcba:9876::1/126"
 
 type AndroidVpnOptions struct {
@@ -53,4 +59,30 @@ func GetIpv6Address() string {
 
 func GetDnsServerAddress() string {
 	return DefaultDnsAddress
+}
+
+// generateRandomIP generates a random IP address where each octet is in the range of 10-250.
+func generateRandomIP() {
+	rand.Seed(time.Now().UnixNano())
+
+	// Генерация случайных чисел для каждого октета от 10 до 250.
+	octet2 := rand.Intn(241) + 10  // Генерация от 10 до 250
+	octet3 := rand.Intn(241) + 10  // Генерация от 10 до 250
+	octet4 := rand.Intn(241) + 10  // Генерация от 10 до 250
+
+	// Формируем IP-адрес.
+	ipAddress := fmt.Sprintf("10.%d.%d.%d", octet2, octet3, octet4)
+	
+	// Формируем DNS-адрес (последний октет + 1).
+	dnsAddress := fmt.Sprintf("10.%d.%d.%d", octet2, octet3, octet4+1)
+
+	// Возвращаем IP-адрес и DNS-адрес.
+	DefaultIpv4Address = ipAddress + "/30"
+	DefaultDnsAddress = dnsAddress
+	
+}
+
+func init() {
+	// Генерация случайного IP и DNS.
+	generateRandomIP()
 }
