@@ -241,5 +241,5 @@ jobs:
           user-email: 'github-actions[bot]@users.noreply.github.com'
           target-branch: action-pr
           commit-message: Update from ${{ github.ref_name }}
-          target-directory: /tmp/
+          target-directory: /tmp/ #comment
 
