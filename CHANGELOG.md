@@ -1,3 +1,10 @@
+## v0.8.76-alpha
+
+- Update build.yaml
+- Fix scroll physics error
+
+- Update changelog
+
 ## v0.8.75
 
 - Add windows storage corruption detection
