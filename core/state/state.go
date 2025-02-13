@@ -2,8 +2,8 @@
 
 package state
 
-var DefaultIpv4Address = "192.168.43.231/30"
-var DefaultDnsAddress = "192.168.43.232"
+var DefaultIpv4Address = "172.19.0.1/30"
+var DefaultDnsAddress = "172.19.0.2"
 var DefaultIpv6Address = "fdfe:dcba:9876::1/126"
 
 type AndroidVpnOptions struct {
